@@ -1,0 +1,18 @@
+#ignore design checkpoint files
+*.dcp
+
+#ignore misc vivado artifacts
+*.str
+*.jou
+*.log
+
+#ignore generated directories
+*.Xil/
+*.cache/
+*.gen/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.tmp/
+bootloader/
+slave/

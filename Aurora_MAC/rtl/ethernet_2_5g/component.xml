@@ -1,0 +1,1696 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <spirit:vendor>faro.com</spirit:vendor>
+  <spirit:library>user</spirit:library>
+  <spirit:name>axi_ethernet_subsystem_support</spirit:name>
+  <spirit:version>1.0</spirit:version>
+  <spirit:busInterfaces>
+    <spirit:busInterface>
+      <spirit:name>GT_REFCLK</spirit:name>
+      <spirit:displayName>GT_REFCLK</spirit:displayName>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="gt_refclk" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="gt_refclk_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>gtref_clk</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>ref_clk</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>ref_clk</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>FREQ_TOLERANCE_HZ</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.REF_CLK.FREQ_TOLERANCE_HZ">-1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_RESET</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.REF_CLK.ASSOCIATED_RESET">resetn</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>SGMII_TX</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="sgmii" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="sgmii_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TXP</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>sgmii_txp</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TXN</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>sgmii_txn</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>SGMII_RX</spirit:name>
+      <spirit:displayName>SGMII_RX</spirit:displayName>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="sgmii" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="sgmii_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RXN</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>sgmii_rxn</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RXP</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>sgmii_rxp</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>resetn</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>resetn</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESETN.POLARITY" spirit:choiceRef="choice_list_9d8b0d81">ACTIVE_LOW</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+  </spirit:busInterfaces>
+  <spirit:model>
+    <spirit:views>
+      <spirit:view>
+        <spirit:name>xilinx_anylanguagesynthesis</spirit:name>
+        <spirit:displayName>Synthesis</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:synthesis</spirit:envIdentifier>
+        <spirit:language>Verilog</spirit:language>
+        <spirit:modelName>axi_ethernet_subsystem_support</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagesynthesis_xilinx_com_ip_axi_ethernet_7_2__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagesynthesis_xilinx_com_ip_gtwizard_ultrascale_1_7__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagesynthesis_xilinx_com_ip_gig_ethernet_pcs_pma_16_2__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagesynthesis_xilinx_com_ip_axi_ethernet_buffer_2_0__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagesynthesis_xilinx_com_ip_tri_mode_ethernet_mac_9_0__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagesynthesis_xilinx_com_ip_c_shift_ram_12_0__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagesynthesis_xilinx_com_ip_c_counter_binary_12_0__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagesynthesis_xilinx_com_ip_util_vector_logic_2_0__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagesynthesis_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>ef9e99f3</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_anylanguagebehavioralsimulation</spirit:name>
+        <spirit:displayName>Simulation</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:simulation</spirit:envIdentifier>
+        <spirit:language>Verilog</spirit:language>
+        <spirit:modelName>axi_ethernet_subsystem_support</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_axi_ethernet_7_2__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_gtwizard_ultrascale_1_7__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_gig_ethernet_pcs_pma_16_2__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_axi_ethernet_buffer_2_0__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_tri_mode_ethernet_mac_9_0__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_c_shift_ram_12_0__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_c_counter_binary_12_0__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_util_vector_logic_2_0__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>faddc029</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_testbench</spirit:name>
+        <spirit:displayName>Test Bench</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:simulation.testbench</spirit:envIdentifier>
+        <spirit:modelName>axi_ethernet_subsystem_demo_tb</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_testbench_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>ec8bbb64</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_xpgui</spirit:name>
+        <spirit:displayName>UI Layout</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:xgui.ui</spirit:envIdentifier>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_xpgui_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>abd1bb30</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+    </spirit:views>
+    <spirit:ports>
+      <spirit:port>
+        <spirit:name>resetn</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>ref_clk</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>sgmii_rxn</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>sgmii_rxp</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>sgmii_txn</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>sgmii_txp</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>signal_detect_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>gtref_clk</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>mmcm_locked_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>pma_reset_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>userclk_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>userclk2_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rxuserclk_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rxuserclk2_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>gtwiz_reset_rx_done_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>gtwiz_reset_tx_done_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>gtwiz_reset_all_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>gtwiz_reset_clk_freerun_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>gtwiz_reset_rx_datapath_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>gtwiz_reset_rx_pll_and_datapath_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>gtwiz_reset_tx_datapath_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>gtwiz_reset_tx_pll_and_datapath_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>gtwiz_userclk_rx_active_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>gtwiz_userclk_tx_active_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>cplllock_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rxpd_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">1</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>txpd_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">1</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>gtwiz_userdata_tx_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">15</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>txctrl0_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">15</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>txctrl1_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">15</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rxclkcorcnt_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">1</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>gtwiz_userdata_rx_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">15</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rxctrl0_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">15</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rxctrl1_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">15</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rxctrl2_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">7</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rxctrl3_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">7</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rxpmaresetdone_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>txpmaresetdone_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rxresetdone_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>txresetdone_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>txelecidle_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>txusrclk2_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>txusrclk_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rxusrclk2_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rxusrclk_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rx8b10ben_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rxcommadeten_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rxmcommaalignen_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rxpcommaalignen_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>gtwiz_buffbypass_rx_done_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>gtwiz_buffbypass_rx_reset_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>gtwiz_buffbypass_rx_start_user_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rxbufstatus_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">2</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>txbufstatus_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">1</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+    </spirit:ports>
+  </spirit:model>
+  <spirit:choices>
+    <spirit:choice>
+      <spirit:name>choice_list_9d8b0d81</spirit:name>
+      <spirit:enumeration>ACTIVE_HIGH</spirit:enumeration>
+      <spirit:enumeration>ACTIVE_LOW</spirit:enumeration>
+    </spirit:choice>
+  </spirit:choices>
+  <spirit:fileSets>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>src/axi_ethernet_subsystem_ex_des_loc.xdc</spirit:name>
+        <spirit:userFileType>xdc</spirit:userFileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/axi_ethernet_subsystem_example_design.xdc</spirit:name>
+        <spirit:userFileType>xdc</spirit:userFileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/axi_ethernet_gt/axi_ethernet_gt.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_gt_wrapper</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/axi_ethernet_subsystem_reset_sync.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/axi_ethernet_subsystem_support_clocks.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/axi_ethernet_subsystem_support_resets.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/axi_ethernet_subsystem_support.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>CHECKSUM_a1e8b298</spirit:userFileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagesynthesis_xilinx_com_ip_axi_ethernet_7_2__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xsi:type="xilinx:componentRefType" xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="axi_ethernet" xilinx:version="7.2">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagesynthesis_xilinx_com_ip_gtwizard_ultrascale_1_7__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="gtwizard_ultrascale" xilinx:version="1.7">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagesynthesis_xilinx_com_ip_gig_ethernet_pcs_pma_16_2__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="gig_ethernet_pcs_pma" xilinx:version="16.2">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagesynthesis_xilinx_com_ip_axi_ethernet_buffer_2_0__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="axi_ethernet_buffer" xilinx:version="2.0">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagesynthesis_xilinx_com_ip_tri_mode_ethernet_mac_9_0__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="tri_mode_ethernet_mac" xilinx:version="9.0">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagesynthesis_xilinx_com_ip_c_shift_ram_12_0__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="c_shift_ram" xilinx:version="12.0">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagesynthesis_xilinx_com_ip_c_counter_binary_12_0__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="c_counter_binary" xilinx:version="12.0">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagesynthesis_xilinx_com_ip_util_vector_logic_2_0__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="util_vector_logic" xilinx:version="2.0">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>src/axi_ethernet_gt/axi_ethernet_gt.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_gt_wrapper</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/axi_ethernet_subsystem_reset_sync.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/axi_ethernet_subsystem_support_clocks.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/axi_ethernet_subsystem_support_resets.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/axi_ethernet_subsystem_support.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_axi_ethernet_7_2__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="axi_ethernet" xilinx:version="7.2">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_gtwizard_ultrascale_1_7__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="gtwizard_ultrascale" xilinx:version="1.7">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_gig_ethernet_pcs_pma_16_2__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="gig_ethernet_pcs_pma" xilinx:version="16.2">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_axi_ethernet_buffer_2_0__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="axi_ethernet_buffer" xilinx:version="2.0">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_tri_mode_ethernet_mac_9_0__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="tri_mode_ethernet_mac" xilinx:version="9.0">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_c_shift_ram_12_0__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="c_shift_ram" xilinx:version="12.0">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_c_counter_binary_12_0__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="c_counter_binary" xilinx:version="12.0">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_util_vector_logic_2_0__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="util_vector_logic" xilinx:version="2.0">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_testbench_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>src/axi_ethernet_subsystem_axi_lite_ctrl.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_testbench</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/axi_ethernet_subsystem_bit_sync.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_testbench</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/axi_ethernet_subsystem_clocks_resets.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_testbench</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/axi_ethernet_subsystem_example.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_testbench</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/axi_ethernet_subsystem_frame_typ.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_testbench</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/axi_ethernet_subsystem_packet_chk.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_testbench</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/axi_ethernet_subsystem_packet_gen.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_testbench</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/axi_ethernet_subsystem_slave_loopback.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_testbench</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/axi_ethernet_subsystem_streaming_generator.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_testbench</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/axi_ethernet_subsystem_demo_tb.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_testbench</spirit:userFileType>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_xpgui_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>xgui/axi_ethernet_subsystem_support_v1_0.tcl</spirit:name>
+        <spirit:fileType>tclSource</spirit:fileType>
+        <spirit:userFileType>CHECKSUM_abd1bb30</spirit:userFileType>
+        <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
+      </spirit:file>
+    </spirit:fileSet>
+  </spirit:fileSets>
+  <spirit:description>axi_ethernet_subsystem_support_v1_0</spirit:description>
+  <spirit:parameters>
+    <spirit:parameter>
+      <spirit:name>Component_Name</spirit:name>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">axi_ethernet_subsystem_support_v1_0</spirit:value>
+    </spirit:parameter>
+  </spirit:parameters>
+  <spirit:vendorExtensions>
+    <xilinx:coreExtensions>
+      <xilinx:supportedFamilies>
+        <xilinx:family xilinx:lifeCycle="Production">kintexuplus{xcku15p-ffva1156-1-e}</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">kintexuplus{xcku15p-ffva1156-2-e}</xilinx:family>
+      </xilinx:supportedFamilies>
+      <xilinx:taxonomies>
+        <xilinx:taxonomy>/UserIP</xilinx:taxonomy>
+      </xilinx:taxonomies>
+      <xilinx:displayName>axi_ethernet_subsystem_support_v1_0</xilinx:displayName>
+      <xilinx:definitionSource>package_project</xilinx:definitionSource>
+      <xilinx:coreRevision>19</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2023-01-31T14:46:38Z</xilinx:coreCreationDateTime>
+      <xilinx:tags>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@256c47e6_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@f2c9917_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4d93bee8_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@27555597_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6d1c5e1b_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7ef26aeb_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3b2694e4_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7468e617_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@919358a_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@13a7c3af_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6feb7cf5_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@264b1b74_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@fe041b3_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@11f650d9_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@ef48fbd_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5bc2cf37_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@799fa509_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6cdbbffb_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@238609f5_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6b3057e7_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@56ec75db_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1923c384_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@cb2bb49_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4c07228d_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@28a6faf8_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@467acdbd_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@284462fd_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@541b3571_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7ff65857_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@43c03b34_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@77290824_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1b61afe8_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@52d2778f_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@e9db81a_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6bc9d65c_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@16121553_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6f4dec19_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6e036110_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@186ed64b_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@168afe7f_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6d7c877f_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@570d1517_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@362983eb_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@14686f5e_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@573d5d52_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@421611ad_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@35b6304e_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@448925e2_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@79d8d615_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@20091403_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@712b09b1_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7523e790_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@749307e_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7ce66eef_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2bfaeed6_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@49e71a9_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7f38d014_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1e83f46c_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2aba09b2_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@555ce9a0_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@251e5341_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1960a795_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5f74b0ff_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@d6358ba_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6cb8ac17_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@c6cc284_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@990935_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@77de1edb_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1e2c1704_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@706e41dd_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@735da326_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6efc7c02_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1646c84_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5d1b5951_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6bb65601_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5365385c_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@24d73bd3_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@79b93a7a_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2332262f_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4dffc1b1_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@35cc8258_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7420f943_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@30723502_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3124fcbf_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@eb5ce02_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@123ec64f_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@68f613b8_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@63fe4521_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@252fdaf5_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@57f5a217_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4e33a425_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4e5d9b9d_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5f3dfcac_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6ccaa8a8_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4249ca2c_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4b234aa4_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2e4ccead_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6e782b9a_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2bdc7d86_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@72162604_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@58191980_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@484e06f2_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@380ef572_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@306eb147_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54182e18_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@484b908d_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4d5a5541_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@51dc824_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5d758770_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@323ebc8f_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4341081d_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@273a2e0f_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2142fae5_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@45f6378d_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@59eacf6a_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3436780e_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@479014f7_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7e960fd3_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@29bace64_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@485ed3c0_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6d11a53a_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@74f3b29d_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7117ecea_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7bab9570_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@159ad289_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@32faf910_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@24e94e0d_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3b755024_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1649e57d_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@19d4dd7e_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@53b4aafa_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@64fb352b_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@68fe1eb1_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6f9876e6_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7ec2ea8f_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7a27474f_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7f161d7e_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7a19239c_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@24f177f0_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@e98f323_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@68c258e1_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6430fae6_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6de49a88_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54943fa0_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4256c4ac_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@e72d70f_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1da01637_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@37884fd3_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@513d982e_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@42429acf_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@23f0881e_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@68d7354e_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@71816d3c_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@76415313_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6664173f_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@36754056_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6b549a8e_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2ae2e62e_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5b57f4b_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@e85607b_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@61c60300_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@50ad150f_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@11cf2279_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3db7f1ba_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@320e7b41_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@18ef76a4_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@709394ff_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@29cb88c8_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@30aeba60_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@74816102_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@10958258_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@56a01d0e_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@598834ec_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2961fdc2_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3610f3a6_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7566203c_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@285db64c_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@518c621f_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@183f3299_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@694c860d_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5849a618_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@e9569b3_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@33cb1902_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1ff86346_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@746d9c05_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6204f9b3_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@338f8bb9_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e9fed3a_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2603318b_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@723bc751_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@69102bdf_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5134f302_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@57cb06e9_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5fe18347_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1a510333_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@67603fee_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@aaf9cf6_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@29d1df83_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2250eab2_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@25aeab9c_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@207eb493_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1a6c2b12_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@65fc6cba_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@ea00772_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@11cdd827_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@575a322f_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2b0fde07_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@302fbf99_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1bf75f87_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2ffc0ab2_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@52fe212e_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@20fae47d_ARCHIVE_LOCATION">c:/scratch/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@42924e41_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@194c54b0_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@344d74ec_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@797316e9_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@17a27bd7_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4e339fd8_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@537bfc63_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@41fe248d_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@75da58b4_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@26b09c35_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1ed93850_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@61f41b9c_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@11530b50_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@36c9630e_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@15036fa0_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7f668638_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3a029a24_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5174dc57_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@63c73574_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@18539668_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@27ea4e52_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@647e6d36_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1d49b51b_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@293513ca_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3fedcc64_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@232c85a9_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4d3e4356_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@63678115_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1f5518db_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4507e6c_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4bbb65b0_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5a709f39_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5f839739_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@143ea39_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@8558445_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3880917f_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@550d10b8_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4cd8cd72_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3ead440c_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@754fb39a_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@14f4f699_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@33bd6e5_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4338555c_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6858d76c_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2d71a946_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3df135e2_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2509c739_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3abe710d_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@404c489c_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7e3b46c8_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@42138b41_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@52d4bd44_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@f23563_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@734a0519_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e35070f_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@41be8ca6_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6735c4ec_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7500d77f_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@488594d3_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@50945f6d_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@bd74e66_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5afd9d2d_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2271f924_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3cb2f12a_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6d5563e5_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1005a5f8_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6a4f05db_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@59252273_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@549b80dc_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3c1a550e_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@686f52e2_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@12bbc76f_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6eebc17c_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@15ecf853_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@41ea8267_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@162796b2_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5dd30972_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1e55d516_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@91ab557_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@13234f09_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@601f712a_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3481fc9d_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@dd3c643_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@70d2feab_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4eac6d_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@419eaa1e_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@e2931e3_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6c2169a6_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@696b764c_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@20171d47_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@378ff229_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@71e3b7f4_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3a9327b5_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@676dda04_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@39a02449_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2b0e85d_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@17dd4ad4_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3030e475_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@40b44cb0_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@69364d32_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@ae765de_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4a53b78c_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@46bf4673_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@21a2b7a5_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1a89582b_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1e7fc77b_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d122aad_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@316e124e_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@32730223_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@45017a8b_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2301e5aa_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@292e146c_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@78b0a876_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7fe01820_ARCHIVE_LOCATION">c:/inter-fpga/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3db876ea_ARCHIVE_LOCATION">c:/scratch/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@b2a522d_ARCHIVE_LOCATION">c:/scratch/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@45332792_ARCHIVE_LOCATION">c:/scratch/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@21c820d2_ARCHIVE_LOCATION">c:/scratch/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3533847d_ARCHIVE_LOCATION">c:/scratch/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7d6f245d_ARCHIVE_LOCATION">c:/scratch/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@62778dfc_ARCHIVE_LOCATION">c:/scratch/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4cffc254_ARCHIVE_LOCATION">c:/scratch/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@48195e1e_ARCHIVE_LOCATION">c:/scratch/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@8338167_ARCHIVE_LOCATION">c:/scratch/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5aa51d91_ARCHIVE_LOCATION">c:/scratch/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@43d63862_ARCHIVE_LOCATION">c:/scratch/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@20a098f5_ARCHIVE_LOCATION">c:/scratch/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@42214b16_ARCHIVE_LOCATION">c:/scratch/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@40636f9e_ARCHIVE_LOCATION">c:/scratch/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5df30e7e_ARCHIVE_LOCATION">c:/scratch/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@c3a1281_ARCHIVE_LOCATION">c:/scratch/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6a2f16f4_ARCHIVE_LOCATION">c:/scratch/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@ff7af18_ARCHIVE_LOCATION">c:/scratch/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@14adf657_ARCHIVE_LOCATION">c:/scratch/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6d90bc8e_ARCHIVE_LOCATION">c:/scratch/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@941390c_ARCHIVE_LOCATION">c:/scratch/Eval_proj/ip_repo/ethernet_2_5g</xilinx:tag>
+      </xilinx:tags>
+    </xilinx:coreExtensions>
+    <xilinx:packagingInfo>
+      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="deddfe6a"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="3c659fdb"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="514ab356"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="56dd5785"/>
+      <xilinx:targetDRCs>
+        <xilinx:targetDRC xilinx:tool="ipi">
+          <xilinx:targetDRCOption xilinx:name="ignore_freq_hz" xilinx:value="true"/>
+        </xilinx:targetDRC>
+      </xilinx:targetDRCs>
+    </xilinx:packagingInfo>
+  </spirit:vendorExtensions>
+</spirit:component>
