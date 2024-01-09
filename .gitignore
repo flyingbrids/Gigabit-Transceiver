@@ -16,3 +16,10 @@
 *.tmp/
 bootloader/
 slave/
+HighSpeedImager/
+*.veo
+*.xml
+/Image_Sensor/source/IPs/*/*.vho
+/Image_Sensor/source/IPs/*/*.v
+/Image_Sensor/source/IPs/*/*.xdc
+/Image_Sensor/source/IPs/*/*.vhdl
